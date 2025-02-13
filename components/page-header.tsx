@@ -15,10 +15,10 @@ export function PageHeader() {
           <Menu />
         </Button>
         <a href='/'>
-          <Image src='/logo.png' alt='TylooTube logo' width={115} height={55} priority />
+          <Image src='/logo.png' alt='TylooTube logo' width={75} height={36} priority />
         </a>
       </div>
-      <form className={`grow gap-4 ${showFullWidthSearch ? 'flex pt-2 pb-3' : 'hidden md:flex'}`}>
+      <form className={`grow gap-4 ${showFullWidthSearch ? 'flex' : 'hidden md:flex'}`}>
         {showFullWidthSearch && (
           <Button
             onClick={() => setShowFullWidthSearch(!showFullWidthSearch)}
