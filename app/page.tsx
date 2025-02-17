@@ -2,6 +2,7 @@
 
 import { CategoryPills } from '@/components/category-pills'
 import { PageHeader } from '@/components/page-header'
+import { Sidebar } from '@/components/sidebar'
 import { VideoGridItem } from '@/components/video-grid-item'
 import { categories } from '@/data/categories'
 import { videos } from '@/data/videos'
@@ -14,7 +15,7 @@ export default function Home() {
     <div className='flex max-h-screen flex-col'>
       <PageHeader />
       <div className='grid grid-flow-col overflow-auto'>
-        <div>Sidebar</div>
+        <Sidebar />
         <div className='overflow-x-hidden px-8 pb-4'>
           <div className='sticky top-0 z-10 bg-white pb-4'>
             <CategoryPills categories={categories} selectedCategory={selectedCategory} onSelect={setSelectedCategory} />
