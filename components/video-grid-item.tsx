@@ -1,5 +1,6 @@
 import { formatDuration, postedAgo, viewCount } from '@/lib/utils'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
 type VideoGridItemProps = {
@@ -49,11 +50,13 @@ export function VideoGridItem({
       onMouseEnter={() => setIsVideoPlaying(true)}
       onMouseLeave={() => setIsVideoPlaying(false)}
     >
-      <a href={`/watch?v=${id}`} className='relative aspect-video'>
-        <img
+      <Link href={`/watch?v=${id}`} className='relative aspect-video'>
+        <Image
           src={thumbnailUrl}
           alt={title}
           className={`block h-full w-full object-cover transition-[border-radius] duration-200 ${isVideoPlaying ? 'rounded-none' : 'rounded-sm'}`}
+          width={226}
+          height={128}
         />
         <div className='bg-secondary-foreground text-secondary absolute right-2 bottom-2 rounded px-1 text-sm'>
           {formatDuration(duration)}
@@ -65,18 +68,18 @@ export function VideoGridItem({
           playsInline
           className={`absolute inset-0 block h-full object-cover transition-opacity duration-200 ${isVideoPlaying ? 'opacity-100 delay-200' : 'opacity-0'}`}
         />
-      </a>
+      </Link>
       <div className='flex gap-2'>
-        <a href={`/@${channel.id}`} className='shrink-0'>
+        <Link href={`/@${channel.id}`} className='shrink-0'>
           <Image src={channel.profileUrl} alt={channel.name} width={32} height={32} className='h-8 w-8 rounded-full' />
-        </a>
+        </Link>
         <div className='flex flex-col'>
-          <a href={`/watch?v=${id}`} className='text-sm font-bold'>
+          <Link href={`/watch?v=${id}`} className='text-sm/tight font-bold'>
             {title}
-          </a>
-          <a href={`/@${channel.id}`} className='text-secondary-foreground text-sm'>
+          </Link>
+          <Link href={`/@${channel.id}`} className='text-secondary-foreground text-xs'>
             {channel.name}
-          </a>
+          </Link>
           <div className='text-secondary-foreground text-xs'>
             {viewCount(views)} Views &bull; {postedAgo(postedAt)}
           </div>

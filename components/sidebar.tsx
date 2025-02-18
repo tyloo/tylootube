@@ -25,6 +25,7 @@ import {
   Trophy
 } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { Children, ElementType, useState } from 'react'
 import { PageHeaderFirstSection } from './page-header'
 import { Separator } from './ui/separator'
@@ -107,14 +108,14 @@ type SmallSidebarItemProps = {
 function SmallSidebarItem({ IconOrImgUrl, href, title }: SmallSidebarItemProps) {
   return (
     <Button asChild variant='ghost' className='mb-2 rounded-sm p-8'>
-      <a href={href} className='flex flex-col items-center justify-center'>
+      <Link href={href} className='flex flex-col items-center justify-center'>
         {typeof IconOrImgUrl === 'string' ? (
           <Image src={IconOrImgUrl} width={32} height={32} alt={title} className='rounded-full' />
         ) : (
           <IconOrImgUrl className='h-10 w-10' />
         )}
         <div className='text-sm font-bold'>{title}</div>
-      </a>
+      </Link>
     </Button>
   )
 }
@@ -164,14 +165,14 @@ function LargeSidebarItem({ isActive = false, IconOrImgUrl, href, title }: Large
       variant='ghost'
       className={`rounded-sm hover:bg-neutral-200 ${isActive ? 'bg-neutral-100 font-bold' : ''}`}
     >
-      <a href={href} className='flex w-full items-center justify-start'>
+      <Link href={href} className='flex w-full items-center justify-start'>
         {typeof IconOrImgUrl === 'string' ? (
           <Image src={IconOrImgUrl} width={32} height={32} alt={title} className='rounded-full' />
         ) : (
           <IconOrImgUrl className='h-10 w-10' />
         )}
         <div className='overflow-hidden text-sm text-ellipsis whitespace-nowrap'>{title}</div>
-      </a>
+      </Link>
     </Button>
   )
 }

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { useSidebarContext } from '@/contexts/sidebar-context'
 import { ArrowLeft, Bell, Menu, Mic, Search, Upload, User } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 
 export function PageHeader() {
@@ -79,9 +80,9 @@ export function PageHeaderFirstSection({ hidden = false }: PageHeaderFirstSectio
       <Button onClick={toggle} variant='ghost' size='icon'>
         <Menu />
       </Button>
-      <a href='/'>
+      <Link href='/'>
         <Image src='/logo.png' alt='TylooTube logo' width={75} height={36} priority />
-      </a>
+      </Link>
     </div>
   )
 }

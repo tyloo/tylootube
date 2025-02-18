@@ -7,7 +7,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'yt3.ggpht.com',
         port: '',
-        pathname: '/ytc/*',
+        pathname: '/ytc/**',
+        search: ''
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+        port: '',
+        pathname: '/vi/**',
         search: ''
       }
     ]
