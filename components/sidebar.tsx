@@ -36,7 +36,7 @@ export function Sidebar() {
   return (
     <>
       <aside
-        className={`scrollbar-hidden sticky top-0 ml-1 flex flex-col overflow-y-auto pb-4 ${isLargeOpen ? 'lg:hidden' : 'lg:flex'}`}
+        className={`scrollbar-hidden sticky top-0 ml-1 flex flex-col overflow-y-auto ${isLargeOpen ? 'lg:hidden' : 'lg:flex'}`}
       >
         <SmallSidebarItem IconOrImgUrl={Home} href='/' title='Home' />
         <SmallSidebarItem IconOrImgUrl={Repeat} href='/shorts' title='Shorts' />
@@ -107,14 +107,14 @@ type SmallSidebarItemProps = {
 
 function SmallSidebarItem({ IconOrImgUrl, href, title }: SmallSidebarItemProps) {
   return (
-    <Button asChild variant='ghost' className='mb-2 rounded-sm p-8'>
+    <Button asChild variant='ghost' className='mb-2 rounded-sm px-4 py-8'>
       <Link href={href} className='flex flex-col items-center justify-center'>
         {typeof IconOrImgUrl === 'string' ? (
           <Image src={IconOrImgUrl} width={32} height={32} alt={title} className='rounded-full' />
         ) : (
           <IconOrImgUrl className='h-10 w-10' />
         )}
-        <div className='text-sm font-bold'>{title}</div>
+        <div className='text-xs'>{title}</div>
       </Link>
     </Button>
   )

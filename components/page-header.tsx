@@ -52,9 +52,6 @@ export function PageHeader() {
         >
           <Search />
         </Button>
-        <Button variant='ghost' size='icon' className='md:hidden'>
-          <Mic />
-        </Button>
         <Button variant='ghost' size='icon'>
           <Upload />
         </Button>
