@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { useSidebarContext } from '@/contexts/sidebar-context'
 import { playlists } from '@/data/playlists'
 import { subscriptions } from '@/data/subscriptions'
 import {
@@ -25,18 +26,29 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import React, { Children, ElementType, useState } from 'react'
+import { PageHeaderFirstSection } from './page-header'
 import { Separator } from './ui/separator'
 
 export function Sidebar() {
+  const { isLargeOpen, isSmallOpen, close } = useSidebarContext()
+
   return (
     <>
-      <aside className='scrollbar-hidden sticky top-0 ml-1 flex flex-col overflow-y-auto pb-4 lg:hidden'>
+      <aside
+        className={`scrollbar-hidden sticky top-0 ml-1 flex flex-col overflow-y-auto pb-4 ${isLargeOpen ? 'lg:hidden' : 'lg:flex'}`}
+      >
         <SmallSidebarItem IconOrImgUrl={Home} href='/' title='Home' />
         <SmallSidebarItem IconOrImgUrl={Repeat} href='/shorts' title='Shorts' />
         <SmallSidebarItem IconOrImgUrl={Clapperboard} href='/subscriptions' title='Subscriptions' />
         <SmallSidebarItem IconOrImgUrl={Library} href='/library' title='Library' />
       </aside>
-      <aside className='scrollbar-hidden absolute top-0 hidden w-56 flex-col gap-2 overflow-y-auto px-2 pb-4 lg:sticky lg:flex'>
+      {isSmallOpen && <div className='fixed inset-0 z-999 bg-black/50 lg:hidden' onClick={close} />}
+      <aside
+        className={`scrollbar-hidden absolute top-0 w-56 flex-col gap-2 overflow-y-auto px-2 pb-4 lg:sticky ${isLargeOpen ? 'lg:flex' : 'lg:hidden'} ${isSmallOpen ? 'z-999 flex max-h-screen bg-white' : 'hidden'}`}
+      >
+        <div className='sticky top-0 bg-white p-2 lg:hidden'>
+          <PageHeaderFirstSection />
+        </div>
         <LargeSidebarSection>
           <LargeSidebarItem isActive IconOrImgUrl={Home} href='/' title='Home' />
           <LargeSidebarItem IconOrImgUrl={Clapperboard} href='/subscriptions' title='Subscriptions' />

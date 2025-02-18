@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { useSidebarContext } from '@/contexts/sidebar-context'
 import { ArrowLeft, Bell, Menu, Mic, Search, Upload, User } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -10,14 +11,7 @@ export function PageHeader() {
 
   return (
     <div className='flex items-center justify-between gap-10 px-4 pt-2 pb-6 lg:gap-20'>
-      <div className={`flex shrink-0 items-center gap-4 ${showFullWidthSearch && 'hidden'}`}>
-        <Button variant='ghost' size='icon'>
-          <Menu />
-        </Button>
-        <a href='/'>
-          <Image src='/logo.png' alt='TylooTube logo' width={75} height={36} priority />
-        </a>
-      </div>
+      <PageHeaderFirstSection hidden={showFullWidthSearch} />
       <form className={`grow gap-4 ${showFullWidthSearch ? 'flex' : 'hidden md:flex'}`}>
         {showFullWidthSearch && (
           <Button
@@ -69,6 +63,25 @@ export function PageHeader() {
           <User />
         </Button>
       </div>
+    </div>
+  )
+}
+
+type PageHeaderFirstSectionProps = {
+  hidden?: boolean
+}
+
+export function PageHeaderFirstSection({ hidden = false }: PageHeaderFirstSectionProps) {
+  const { toggle } = useSidebarContext()
+
+  return (
+    <div className={`flex shrink-0 items-center gap-4 ${hidden ? 'hidden' : 'flex'}`}>
+      <Button onClick={toggle} variant='ghost' size='icon'>
+        <Menu />
+      </Button>
+      <a href='/'>
+        <Image src='/logo.png' alt='TylooTube logo' width={75} height={36} priority />
+      </a>
     </div>
   )
 }
