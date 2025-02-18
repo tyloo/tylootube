@@ -47,7 +47,7 @@ export function Sidebar() {
       <aside
         className={`scrollbar-hidden absolute top-0 w-56 flex-col gap-2 overflow-y-auto px-2 pb-4 lg:sticky ${isLargeOpen ? 'lg:flex' : 'lg:hidden'} ${isSmallOpen ? 'z-999 flex max-h-screen bg-white' : 'hidden'}`}
       >
-        <div className='sticky top-0 bg-white p-2 lg:hidden'>
+        <div className='bg-background sticky top-0 p-2 lg:hidden'>
           <PageHeaderFirstSection />
         </div>
         <LargeSidebarSection>
@@ -163,7 +163,7 @@ function LargeSidebarItem({ isActive = false, IconOrImgUrl, href, title }: Large
     <Button
       asChild
       variant='ghost'
-      className={`rounded-sm hover:bg-neutral-200 ${isActive ? 'bg-neutral-100 font-bold' : ''}`}
+      className={`hover:bg-accent-foreground hover:text-accent rounded-sm ${isActive ? 'bg-accent font-bold' : ''}`}
     >
       <Link href={href} className='flex w-full items-center justify-start'>
         {typeof IconOrImgUrl === 'string' ? (

@@ -6,6 +6,7 @@ import { ArrowLeft, Bell, Menu, Mic, Search, Upload, User } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import ThemeToggle from './theme-toggle'
 
 export function PageHeader() {
   const [showFullWidthSearch, setShowFullWidthSearch] = useState(false)
@@ -29,11 +30,11 @@ export function PageHeader() {
           <input
             type='search'
             placeholder='Search'
-            className='border-secondary-foreground shadow-secondary-foreground/10 w-full rounded-l-full border px-4 py-1 text-sm shadow-inner outline-none focus:border-blue-500'
+            className='border-foreground shadow-foreground/20 dark:focus:border-foreground w-full rounded-l-full border px-4 py-1 text-sm shadow-inner outline-none focus:border-blue-500'
           />
           <Button
             type='button'
-            className='border-secondary-foreground shrink-0 rounded-l-none rounded-r-full border border-l-0 px-10 py-2'
+            className='border-foreground shrink-0 rounded-l-none rounded-r-full border border-l-0 px-10 py-2'
           >
             <Search />
           </Button>
@@ -63,6 +64,7 @@ export function PageHeader() {
         <Button variant='ghost' size='icon'>
           <User />
         </Button>
+        <ThemeToggle />
       </div>
     </div>
   )

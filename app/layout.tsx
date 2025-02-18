@@ -1,4 +1,4 @@
-import { SidebarProvider } from '@/contexts/sidebar-context'
+import Providers from '@/contexts/providers'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
@@ -25,10 +25,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <SidebarProvider>
-      <html lang='en'>
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+    <Providers>
+      <html lang='en' suppressHydrationWarning>
+        <body className={`${geistSans.variable} ${geistMono.variable} bg-background antialiased`}>{children}</body>
       </html>
-    </SidebarProvider>
+    </Providers>
   )
 }

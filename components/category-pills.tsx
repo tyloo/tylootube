@@ -54,7 +54,7 @@ export function CategoryPills({ categories, selectedCategory, onSelect }: Catego
         ))}
       </div>
       {isLeftVisible && (
-        <div className='absolute top-1/2 left-0 h-full w-24 -translate-y-1/2 bg-gradient-to-r from-white from-50% to-transparent'>
+        <div className='from-background absolute top-1/2 left-0 h-full w-24 -translate-y-1/2 bg-gradient-to-r from-50% to-transparent'>
           <Button
             asChild
             variant='ghost'
@@ -70,7 +70,7 @@ export function CategoryPills({ categories, selectedCategory, onSelect }: Catego
         </div>
       )}
       {isRightVisible && (
-        <div className='absolute top-1/2 right-0 flex h-full w-24 -translate-y-1/2 justify-end bg-gradient-to-l from-white from-50% to-transparent'>
+        <div className='from-background absolute top-1/2 right-0 flex h-full w-24 -translate-y-1/2 justify-end bg-gradient-to-l from-50% to-transparent'>
           <Button
             asChild
             variant='ghost'

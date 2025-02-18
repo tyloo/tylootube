@@ -17,7 +17,7 @@ export default function Home() {
       <div className='grid grid-flow-col overflow-auto'>
         <Sidebar />
         <div className='overflow-x-hidden px-8 pb-4'>
-          <div className='sticky top-0 z-10 bg-white pb-4'>
+          <div className='bg-background sticky top-0 z-10 pb-4'>
             <CategoryPills categories={categories} selectedCategory={selectedCategory} onSelect={setSelectedCategory} />
           </div>
           <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
